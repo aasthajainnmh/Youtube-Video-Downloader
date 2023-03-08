@@ -1,0 +1,59 @@
+{% load static %}
+<!-- We will use Django's post method to get the URL  (because it is secure)-->
+<!-- We also need csrf token if we are using the post method. Syntax for csrf token is -->
+{% csrf_token %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon-16x16.png' %}" />
+    <link rel="icon" type="image/x-icon" href='{% static "images/favicon-32x32.png" %}' />
+
+    <title>Youtube Video Downloader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+
+    <style>
+      body {
+        background-image: url('{% static "images/YoutubeWallpaper.png" %}');
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="font-size: 39.5px">Youtube video downloader</h1>
+      <form action=" " method="post">
+        {% csrf_token %}
+        <label for="link" style="background-color: #dd95a7; font-size: 28px">
+          Enter URL of Youtube Video:</label
+        >
+        <input
+          style="height: 35px; width: 300px"
+          type="text"
+          id="link"
+          name="link"
+        /><br /><br />
+        <br />
+        <br />
+        <input
+          style="
+            font-family: 'Pacifico', cursive;
+            font-size: 29px;
+            background-color: yellow;
+          "
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </div>
+  </body>
+</html>
